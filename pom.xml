@@ -19,7 +19,7 @@
     <!-- If you are building with JDK 9 or higher, you can uncomment the lines below to set the release version -->
     <!-- <release.version>8</release.version> -->
     <micronaut.version>3.4.2</micronaut.version>
-    <exec.mainClass>io.netty.native.epoll.Application</exec.mainClass>
+    <exec.mainClass>io.netty.epoll.Application</exec.mainClass>
     <micronaut.runtime>netty</micronaut.runtime>
   </properties>
 
@@ -81,6 +81,16 @@
       <artifactId>logback-classic</artifactId>
       <scope>runtime</scope>
     </dependency>
+    <dependency>
+      <groupId>io.micronaut.reactor</groupId>
+      <artifactId>micronaut-reactor</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.netty</groupId>
+      <artifactId>netty-transport-native-epoll</artifactId>
+      <classifier>linux-x86_64</classifier>
+    </dependency>
   </dependencies>
 
   <build>
@@ -89,7 +99,7 @@
         <groupId>io.micronaut.build</groupId>
         <artifactId>micronaut-maven-plugin</artifactId>
       </plugin>
-      
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -105,7 +115,7 @@
             </path>
           </annotationProcessorPaths>
           <compilerArgs>
-            <arg>-Amicronaut.processing.group=io.netty.native.epoll</arg>
+            <arg>-Amicronaut.processing.group=io.netty.epoll</arg>
             <arg>-Amicronaut.processing.module=netty</arg>
           </compilerArgs>
         </configuration>

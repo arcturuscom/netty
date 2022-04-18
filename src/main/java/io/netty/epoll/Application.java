@@ -1,4 +1,4 @@
-package io.netty.native.epoll;
+package io.netty.epoll;
 
 import io.micronaut.runtime.Micronaut;
 

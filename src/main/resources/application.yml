@@ -1,6 +1,10 @@
 micronaut:
   application:
     name: netty
+  netty:
+    event-loops:
+      default:
+        prefer-native-transport: true
 netty:
   default:
     allocator:
